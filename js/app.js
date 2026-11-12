@@ -33,10 +33,11 @@ function reset() {
   }
 }
 
-tabs.forEach(function (tab, i) {
-  tab.addEventListener("click", function () {
-    console.log(i);
-    reset();
-    init(i);
+[tabs, contents].forEach(function (list) {
+  list.forEach(function (item, i) {
+    item.addEventListener("click", function () {
+      reset();
+      init(i);
+    });
   });
 });
