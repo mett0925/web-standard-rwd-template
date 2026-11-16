@@ -62,3 +62,12 @@ document.querySelectorAll("nav a").forEach(function (link) {
     setNav(false);
   });
 });
+
+// 맨 아래에 둠: CDN에서 Swiper를 못 불러와도 위 기능들은 동작해야 함
+new Swiper(".gallery", {
+  navigation: {
+    nextEl: ".gallery .swiper-button-next",
+    prevEl: ".gallery .swiper-button-prev",
+  },
+  loop: true,
+});
