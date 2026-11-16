@@ -1,5 +1,15 @@
 html {
   scroll-padding-top: 60px;
+  scroll-behavior: smooth;
+}
+
+.mob-nav-btn {
+  display: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 * {
@@ -22,6 +32,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  width: 1200px;
 }
 
 #wrap section {
@@ -62,7 +73,6 @@ a {
 .guide-content li {
   position: relative;
   flex: 1;
-  /* 기본은 4장이 같은 폭 */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -96,7 +106,6 @@ a {
   font-size: 0.8125rem;
   font-weight: bold;
   opacity: 0;
-  /* 평소엔 숨김 */
   transform: translateY(-0.625rem);
   transition: 0.4s;
 }
@@ -104,7 +113,6 @@ a {
 .guide-content .icon {
   font-size: 4rem;
   opacity: 0;
-  /* 평소엔 숨김 */
   transform: scale(0.6);
   transition: 0.4s;
 }
@@ -171,7 +179,12 @@ h3 {
   backdrop-filter: blur(8px);
 }
 
-.logo {
+#top.header-transparent {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: none;
+}
+
+#top .logo {
   display: flex;
   font-size: clamp(1.125rem, 3vw, 1.5rem);
   gap: 10px;
@@ -183,17 +196,24 @@ h3 {
 }
 
 #top ul li a {
-  display: inline-block;
+  display: block;
   color: #dddfde;
   padding: 10px;
   text-align: center;
-  background: linear-gradient(#7fe0ae, #7fe0ae) no-repeat left bottom / 0% 10%;
+}
+
+#top ul li a span {
+  padding-bottom: 4px;
+  background: linear-gradient(#7fe0ae, #7fe0ae) no-repeat left bottom / 0% 3px;
   transition: background-size 0.3s ease;
 }
 
 #top nav ul li a:hover {
   color: #7fe0ae;
-  background-size: 100% 10%;
+}
+
+#top nav ul li a:hover span {
+  background-size: 100% 3px;
 }
 
 .hero {
@@ -462,51 +482,4 @@ footer {
 .top.show {
   opacity: 1;
   visibility: visible;
-}
-
-@media (max-width: 768px) {
-  .profile {
-    position: static;
-    margin: -60px auto 0;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .tags {
-    margin-left: 0;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  #posts {
-    margin-top: 40px;
-  }
-
-  #posts article,
-  .post2 {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .thumb,
-  .post2 .thumb {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .photos {
-    height: auto;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;
-    grid-template-areas:
-      "p1 p1"
-      "p2 p5"
-      "p3 p5"
-      "p4 p4";
-  }
-
-  footer {
-    flex-direction: column;
-    align-items: center;
-  }
 }

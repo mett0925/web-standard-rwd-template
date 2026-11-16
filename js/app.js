@@ -1,5 +1,7 @@
 const topBtn = document.querySelector(".top");
+const header = document.querySelector("#top");
 let hideTimer;
+
 topBtn.addEventListener("click", function () {
   window.scrollTo({
     top: 0,
@@ -9,6 +11,7 @@ topBtn.addEventListener("click", function () {
 
 window.addEventListener("scroll", function () {
   topBtn.classList.toggle("show", window.scrollY > 100);
+  header.classList.toggle("header-transparent", window.scrollY < 1);
 
   clearTimeout(hideTimer);
   hideTimer = setTimeout(() => {
@@ -39,5 +42,23 @@ function reset() {
       reset();
       init(i);
     });
+  });
+});
+
+const navBtn = document.querySelector(".mob-nav-btn");
+
+function setNav(open) {
+  document.body.classList.toggle("m-nav-open", open);
+  navBtn.setAttribute("aria-expanded", open);
+  navBtn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+}
+
+navBtn.addEventListener("click", function () {
+  setNav(!document.body.classList.contains("m-nav-open"));
+});
+
+document.querySelectorAll("nav a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    setNav(false);
   });
 });
