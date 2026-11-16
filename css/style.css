@@ -271,6 +271,22 @@ h3 {
   color: white;
 }
 
+.btn {
+  background-color: white;
+  width: 100px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 30px;
+  margin-top: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  background-color: #7fe0ae;
+}
+
 main {
   max-width: 1200px;
   margin: auto;
