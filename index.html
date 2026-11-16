@@ -3,12 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="오늘도 커밋 — 매일의 개발 기록과 최신글, 사진첩을 담은 블로그"
+    />
+    <meta
+      name="keywords"
+      content="개발 블로그, 커밋, 개발 기록, 웹 표준, 반응형 웹"
+    />
+    <meta name="author" content="오늘도 커밋" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:title" content="오늘도 커밋" />
+    <meta
+      property="og:description"
+      content="매일의 개발 기록과 최신글, 사진첩을 담은 블로그"
+    />
+    <meta property="og:locale" content="ko_KR" />
     <title>오늘도 커밋</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media.css" />
   </head>
   <body>
     <header id="top">
@@ -18,11 +41,25 @@
       </h1>
       <nav>
         <ul>
-          <li><a href="#posts">최신글</a></li>
-          <li><a href="#photos">사진첩</a></li>
-          <li><a href="#">방명록</a></li>
+          <li>
+            <a href="#posts"><span>최신글</span></a>
+          </li>
+          <li>
+            <a href="#photos"><span>사진첩</span></a>
+          </li>
+          <li>
+            <a href="#"><span>방명록</span></a>
+          </li>
         </ul>
       </nav>
+      <button
+        type="button"
+        class="mob-nav-btn"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </header>
     <section class="hero">
       <div class="hero-txt">
@@ -97,7 +134,7 @@
         </article>
       </section>
       <div id="wrap">
-        <section>
+        <section class="guide">
           <ul class="guide-tabs">
             <li><button type="button">🖥️ 프론트엔드</button></li>
             <li><button type="button">⚙️ 백엔드</button></li>
