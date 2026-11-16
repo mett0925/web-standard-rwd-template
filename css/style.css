@@ -234,6 +234,13 @@ h3 {
   background-image: url(../img/hero-red-1440x520.png);
 }
 
+.gallery:has(.s02.swiper-slide-active) {
+  --swiper-navigation-color: rgb(98, 98, 197);
+}
+.gallery:has(.s03.swiper-slide-active) {
+  --swiper-navigation-color: rgb(255, 139, 159);
+}
+
 .swiper-slide.s01 .sub {
   color: #7fe0ae;
 }
@@ -254,6 +261,8 @@ h3 {
 
 .gallery {
   width: 100%;
+  --swiper-navigation-size: 30px;
+  --swiper-navigation-color: #7fe0ae;
 }
 
 .sub {
