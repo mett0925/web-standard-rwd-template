@@ -63,6 +63,56 @@ document.querySelectorAll("nav a").forEach(function (link) {
   });
 });
 
+const lightbox = document.querySelector(".photo-modal");
+const lightboxImg = lightbox.querySelector("img");
+const lightboxTxt = lightbox.querySelector("p");
+
+function openLightbox(item) {
+  const caption = item.querySelector("p").textContent;
+  // 이미지 경로는 CSS 배경에서 읽어 와서 HTML/CSS에 중복으로 적지 않음
+  lightboxImg.src = getComputedStyle(item).backgroundImage.slice(5, -2);
+  lightboxImg.alt = caption;
+  lightboxTxt.textContent = caption;
+  lightbox.showModal();
+}
+
+document.querySelectorAll(".photos li").forEach(function (item) {
+  item.tabIndex = 0;
+  item.setAttribute("role", "button");
+  item.addEventListener("click", function () {
+    openLightbox(item);
+  });
+  item.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openLightbox(item);
+    }
+  });
+});
+
+const postModal = document.querySelector(".post-modal");
+const postModalTitle = postModal.querySelector("h3");
+const postModalBody = postModal.querySelector(".post-body");
+
+document.querySelectorAll("#posts .more").forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const info = link.closest(".info");
+    postModalTitle.textContent = info.querySelector("h3").textContent;
+    // 페이지에 직접 적어 둔 본문만 복사하므로 innerHTML 사용해도 안전
+    postModalBody.innerHTML = info.querySelector(".detail").innerHTML;
+    postModalBody.scrollTop = 0;
+    postModal.showModal();
+  });
+});
+
+// 바깥 어두운 영역 클릭 시 닫기
+document.querySelectorAll("dialog.lightbox").forEach(function (dialog) {
+  dialog.addEventListener("click", function (e) {
+    if (e.target === dialog) dialog.close();
+  });
+});
+
 // 맨 아래에 둠: CDN에서 Swiper를 못 불러와도 위 기능들은 동작해야 함
 new Swiper(".gallery", {
   navigation: {

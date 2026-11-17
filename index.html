@@ -146,6 +146,23 @@
               봤어요. 코드와 원리를 정리했어요.
             </p>
             <a href="#" class="more">더 읽기</a>
+            <div class="detail" hidden>
+              <p>
+                fade up은 요소가 투명한 상태로 조금 아래에 있다가, 제자리로
+                올라오면서 선명해지는 효과예요.
+              </p>
+              <p>
+                <code>@keyframes</code>에서 시작 상태를
+                <code>opacity: 0; transform: translateY(20px);</code>로 두고
+                끝 상태를 <code>opacity: 1; transform: none;</code>으로
+                잡으면 끝이에요.
+              </p>
+              <p>
+                <code>animation-delay</code>를 요소마다 조금씩 다르게 주면
+                카드가 차례대로 올라오는 느낌을 낼 수 있어요. top, margin
+                대신 transform을 써야 화면이 덜 버벅여요.
+              </p>
+            </div>
           </div>
         </article>
         <article class="post2">
@@ -160,6 +177,20 @@
               잡은 과정이에요.
             </p>
             <a href="#" class="more">더 읽기</a>
+            <div class="detail" hidden>
+              <p>
+                헤더와 메뉴처럼 한 줄로 늘어서는 건 <code>flex</code>, 사진첩처럼
+                가로세로 칸이 있는 건 <code>grid</code>로 나눴어요.
+              </p>
+              <p>
+                날짜 배지나 TOP 버튼처럼 다른 요소 위에 떠 있어야 하는 건
+                <code>position: absolute</code>와 <code>fixed</code>를 썼어요.
+              </p>
+              <p>
+                마지막으로 <code>media.css</code>에서 768px 이하 화면을 따로
+                잡아, 모바일에서도 깨지지 않게 다듬었어요.
+              </p>
+            </div>
           </div>
         </article>
         <article class="post3">
@@ -174,6 +205,21 @@
               정리했어요.
             </p>
             <a href="#" class="more">더 읽기</a>
+            <div class="detail" hidden>
+              <p>
+                날씨 API에 가입해서 키를 받은 다음,
+                <code>fetch(주소)</code>로 데이터를 요청했어요.
+              </p>
+              <p>
+                응답은 <code>await res.json()</code>으로 객체로 바꾸고, 그
+                안의 기온과 날씨 상태를 꺼내 화면에 넣었어요.
+              </p>
+              <p>
+                주소가 틀리거나 인터넷이 끊기면 에러가 나서,
+                <code>try...catch</code>로 감싸 "날씨를 불러오지 못했어요"
+                같은 안내를 보여주도록 했어요.
+              </p>
+            </div>
           </div>
         </article>
       </section>
@@ -235,13 +281,13 @@
             <p>터미널</p>
           </li>
           <li class="p3">
-            <p>깃 커밋</p>
-          </li>
-          <li class="p4">
             <p>디버깅 노트</p>
           </li>
-          <li class="p5">
+          <li class="p4">
             <p>작업 화면</p>
+          </li>
+          <li class="p5">
+            <p>깃 커밋</p>
           </li>
         </ul>
       </section>
@@ -250,6 +296,20 @@
       <p>&copy;2026 오늘도 커밋</p>
       <p>코딩한 날마다 업데이트해요</p>
     </footer>
+    <dialog class="lightbox photo-modal">
+      <form method="dialog">
+        <button class="lightbox-close" aria-label="닫기">&times;</button>
+      </form>
+      <img src="" alt="" />
+      <p></p>
+    </dialog>
+    <dialog class="lightbox post-modal" aria-labelledby="post-modal-title">
+      <form method="dialog">
+        <button class="lightbox-close" aria-label="닫기">&times;</button>
+      </form>
+      <h3 id="post-modal-title"></h3>
+      <div class="post-body"></div>
+    </dialog>
     <a href="#top" class="top">TOP</a>
     <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
     <script src="./js/app.js"></script>
