@@ -69,7 +69,6 @@ const lightboxTxt = lightbox.querySelector("p");
 
 function openLightbox(item) {
   const caption = item.querySelector("p").textContent;
-  // 이미지 경로는 CSS 배경에서 읽어 와서 HTML/CSS에 중복으로 적지 않음
   lightboxImg.src = getComputedStyle(item).backgroundImage.slice(5, -2);
   lightboxImg.alt = caption;
   lightboxTxt.textContent = caption;
@@ -99,30 +98,26 @@ document.querySelectorAll("#posts .more").forEach(function (link) {
     e.preventDefault();
     const info = link.closest(".info");
     postModalTitle.textContent = info.querySelector("h3").textContent;
-    // 페이지에 직접 적어 둔 본문만 복사하므로 innerHTML 사용해도 안전
     postModalBody.innerHTML = info.querySelector(".detail").innerHTML;
     postModalBody.scrollTop = 0;
     postModal.showModal();
   });
 });
 
-// 바깥 어두운 영역 클릭 시 닫기
 document.querySelectorAll("dialog.lightbox").forEach(function (dialog) {
   dialog.addEventListener("click", function (e) {
     if (e.target === dialog) dialog.close();
   });
 });
 
-// CDN 실패 시 AOS가 없어도 다른 기능은 동작하도록 확인 후 실행
 if (window.AOS) {
   AOS.init({
     duration: 800,
-    once: true,
+    once: false,
     disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   });
 }
 
-// 맨 아래에 둠: CDN에서 Swiper를 못 불러와도 위 기능들은 동작해야 함
 new Swiper(".gallery", {
   navigation: {
     nextEl: ".gallery .swiper-button-next",
