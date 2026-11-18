@@ -113,6 +113,15 @@ document.querySelectorAll("dialog.lightbox").forEach(function (dialog) {
   });
 });
 
+// CDN 실패 시 AOS가 없어도 다른 기능은 동작하도록 확인 후 실행
+if (window.AOS) {
+  AOS.init({
+    duration: 800,
+    once: true,
+    disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  });
+}
+
 // 맨 아래에 둠: CDN에서 Swiper를 못 불러와도 위 기능들은 동작해야 함
 new Swiper(".gallery", {
   navigation: {
