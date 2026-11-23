@@ -615,8 +615,8 @@ footer {
   background-color: #2e9e6b;
   color: white;
   font-weight: bold;
-  width: clamp(50px, 8vw, 80px);
-  height: clamp(50px, 8vw, 80px);
+  width: clamp(50px, 8vw, 60px);
+  height: clamp(50px, 8vw, 60px);
   align-items: center;
   justify-content: center;
   border-radius: 100px;
